@@ -1,0 +1,12 @@
+#!/usr/bin/with-contenv bash
+
+export DEBIAN_FRONTEND=noninteractive
+if [ -f /usr/bin/mongodump ] && [ -f /usr/bin/mongorestore ]; then
+    echo "**** mongodb-org-tools already installed ****"
+    exit 0
+fi
+
+echo "**** installing mongodb-org-tools ****"
+apt-get update
+apt-get install -y --no-install-recommends mongodb-org-tools
+
